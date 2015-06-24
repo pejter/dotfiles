@@ -1,0 +1,14 @@
+*
+!.gitignore
+!bootstrap.sh
+!addfile.sh
+!bin/*
+!.bash_logout
+!.bashrc
+!.gitconfig
+!.gitignore
+!.i3
+!.i3status.conf
+!.profile
+!.ssh
+!.synaptic
