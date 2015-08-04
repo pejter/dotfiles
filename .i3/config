@@ -96,7 +96,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 0: irssi
+bindsym $mod+0 workspace 10: irssi
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -108,7 +108,7 @@ bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 0
+bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -146,6 +146,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id feh --bg-fill ~/Dropbox/Wallpapers/floral.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
+bindsym $mod+F1 exec firefox
 for_window [class="Firefox"] move container to workspace 3: web
 for_window [class="Sublime"] move container to workspace 2: edit
 
