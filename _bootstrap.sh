@@ -4,7 +4,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 git pull origin master;
 
 function moveDotfiles() {
-	rsync --exclude ".git/" --exclude "bootstrap.sh" -avh --no-owner --no-group . ~;
+	rsync --exclude ".git/" --exclude "_*.sh" -avh --no-owner --no-group . ~;
 	source ~/.profile;
 	source ~/.bashrc;
 }
