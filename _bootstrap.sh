@@ -5,8 +5,6 @@ git pull origin master;
 
 function moveDotfiles() {
 	rsync --exclude ".git/" --exclude "_*.sh" -avh --no-owner --no-group . ~;
-	source ~/.profile;
-	source ~/.bashrc;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
