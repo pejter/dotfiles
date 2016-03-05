@@ -26,3 +26,6 @@ if [ -d "$HOME/go/bin" ] ; then
 	PATH="$PATH:$HOME/go/bin"
 	export GOPATH="$HOME/go"
 fi
+
+# Disable system speaker on Xsession, because it's annoying
+xset -b
