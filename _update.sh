@@ -1,7 +1,10 @@
 #!/bin/bash
-DOTFILES_DIR="$(dirname "${BASH_SOURCE}")"
-
-find $DOTFILES_DIR -type f \
+cd $(dirname "${BASH_SOURCE}")
+echo "Updating..."
+find -type f \
 	-not -name "_*.sh" \
-	-not -path "./.git/*"\
-	-exec cp ~/{} $DOTFILES_DIR/{} \;
+	-not -path "*.git*" \
+	-print \
+	-exec cp ~/{} ./{} \;
+echo "Returning to original directory"
+cd -

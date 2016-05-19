@@ -190,7 +190,7 @@ bindsym $mod+F12 exec sudo poweroff
 
 # Launch firefox
 bindsym $mod+F1 exec firefox-developer
-bindsym $mod+F2 exec subl3
+bindsym $mod+F3 exec subl3
 bindsym $mod+F4 exec thunar
 
 # Touchpad controls
@@ -200,3 +200,7 @@ bindsym $mod+t exec /home/pejter/bin/touchpad_toogle.sh # toggle touchpad
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +10% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -10% && killall -SIGUSR1 i3status # -10% volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && killall -SIGUSR1 i3status # mute sound
+
+# Take a screenshot
+bindsym Print exec scrot ~/Dropbox/Screenshots/%Y-%m-%d-%T.png
+bindsym --release Control+Print exec scrot -s ~/Dropbox/Screenshots/%Y-%m-%d-%T.png
