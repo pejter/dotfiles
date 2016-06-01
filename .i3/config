@@ -182,7 +182,7 @@ bar {
 }
 
 # Rofi
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Source Code Pro 14"
+bindsym $mod+d exec rofi -show run -config .i3/rofi.cfg # -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Source Code Pro 14"
 
 # Screen lock
 bindsym $mod+l exec i3lock --color "$bg-color"

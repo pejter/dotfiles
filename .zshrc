@@ -82,3 +82,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias docker-volume-clear="docker volume ls | cut -s -f 16 -d ' ' | tail -n +2 | xargs docker volume rm"
