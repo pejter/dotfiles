@@ -12,19 +12,19 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    . "$HOME/.bashrc"
     fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-	PATH="$HOME/bin:$PATH"
+    PATH="$HOME/bin:$PATH"
 fi
 
 # set GOPATH & PATH so it includes golang directories
-if [ -d "$HOME/go/bin" ] ; then
-	PATH="$PATH:$HOME/go/bin"
-	export GOPATH="$HOME/go"
+if [ -d "$HOME/go" ] ; then
+    export GOPATH="$HOME/go"
+    export PATH="$HOME/go/bin:$PATH"
 fi
 
 # Disable system speaker on Xsession, because it's annoying

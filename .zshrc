@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast docker ssh-agent)
+plugins=(git docker ssh-agent docker docker-compose)
 
 # User configuration
 
@@ -83,4 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias docker-volume-clear="docker volume ls | cut -s -f 16 -d ' ' | tail -n +2 | xargs docker volume rm"
+alias dirs="dirs -v"
+alias yapf-django="yapf -ri --style='{DEDENT_CLOSING_BRACKETS=true,COLUMN_LIMIT=119}' -e '*migrations/*' ."
+alias code="code -r"
