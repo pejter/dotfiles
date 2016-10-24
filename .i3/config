@@ -181,9 +181,6 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
 exec --no-startup-id compton -f
 
-# Source .zprofile
-exec --no-startup-id source ~/.zprofile
-
 # Setup touchpad buttons
 exec --no-startup-id \
 	synclient TapButton1=1; \
@@ -206,7 +203,7 @@ assign [class="Thunar"] $ws4
 # Launch firefox
 bindsym $mod+F1 exec firefox-developer
 bindsym $mod+F2 exec exec gnome-terminal;
-bindsym $mod+F3 exec code
+bindsym $mod+F3 exec subl3
 bindsym $mod+F4 exec thunar
 
 # Touchpad controls
