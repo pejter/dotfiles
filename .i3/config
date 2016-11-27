@@ -181,12 +181,6 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
 exec --no-startup-id compton -f
 
-# Setup touchpad buttons
-exec --no-startup-id \
-	synclient TapButton1=1; \
-	synclient TapButton2=3; \
-	synclient TapButton3=2
-
 # Rofi
 bindsym $mod+d exec rofi -show run -config .i3/rofi.cfg # -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Source Code Pro 14"
 
