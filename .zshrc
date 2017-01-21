@@ -86,4 +86,4 @@ source $ZSH/oh-my-zsh.sh
 alias dirs="dirs -v"
 alias yapf-django="yapf -ri --style='{DEDENT_CLOSING_BRACKETS=true,COLUMN_LIMIT=119}' -e '*migrations/*' ."
 alias pdflatex='docker run --rm -i --user="$(id -u):$(id -g)" -v $PWD:/data blang/latex pdflatex'
-alias golang='docker run --rm -it --user="$(id -u):$(id -g)" -v $PWD:/code golang bash'
+alias d-user='docker run --rm -it --user="$(id -u):$(id -g)" -v $PWD:/code'
