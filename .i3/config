@@ -163,6 +163,8 @@ new_window none
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        position    top
+        mode        hide
         status_command i3status -c /home/pejter/.i3/i3status.conf
         colors {
                 background $bg-color
@@ -186,18 +188,19 @@ exec --no-startup-id compton -f
 bindsym $mod+d exec rofi -show run -config .i3/rofi.cfg # -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Source Code Pro 14"
 
 # Screen lock
-bindsym $mod+l exec i3lock --color "$bg-color"
+#bindsym $mod+l exec i3lock --color "$bg-color"
+bindsym $mod+l exec i3lock-fancy
+
 bindsym $mod+F12 exec sudo poweroff
 
 assign [class="Firefox"] $ws1
-assign [class="Gnome-terminal"] $ws2
 assign [class="Subl3"] $ws3
 assign [class="Code"] $ws3
 assign [class="Thunar"] $ws4
 
 # Launch firefox
 bindsym $mod+F1 exec firefox-developer
-bindsym $mod+F2 exec exec gnome-terminal;
+bindsym $mod+F2 exec --no-startup-id i3-msg workspace $ws2 && exec gnome-terminal
 bindsym $mod+F3 exec subl3
 bindsym $mod+F4 exec thunar
 
@@ -205,9 +208,9 @@ bindsym $mod+F4 exec thunar
 bindsym $mod+t exec /home/pejter/bin/touchpad_toogle.sh # toggle touchpad
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -10% && killall -SIGUSR1 i3status # -10% volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && killall -SIGUSR1 i3status # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% && killall -SIGUSR1 i3status # -10% volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status # mute sound
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
