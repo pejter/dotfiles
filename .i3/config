@@ -217,5 +217,5 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Take a screenshot
-bindsym Print exec scrot ~/Dropbox/Screenshots/%Y-%m-%d-%T.png
-bindsym --release Control+Print exec scrot -s ~/Dropbox/Screenshots/%Y-%m-%d-%T.png
+bindsym Print exec import -window root ~/Dropbox/Screenshots/$(date +%F_%H.%M.%S).png
+bindsym Control+Print exec screenshot_active.sh
