@@ -1,0 +1,14 @@
+dropbox
+dunst
+firefox-developer
+gnome-terminal-transparency
+i3-wm
+i3lock-color-git
+i3lock-fancy-git
+i3status
+imagemagick
+networkmanager
+rofi
+sublime-text-dev
+thunar
+zsh
