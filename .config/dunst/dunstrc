@@ -1,21 +1,21 @@
 [global]
-    alignment = center
-    allow_markup = yes
+    alignment = left
+    markup = yes
     bounce_freq = 0
     follow = mouse
     font = "Droid Sans 8"
     format = "<b>%s</b>\n%b"
     geometry = "300x5-20+30"
-    horizontal_padding = 8
+    horizontal_padding = 20
     idle_threshold = 120
     ignore_newline = no
     indicate_hidden = yes
-    line_height = 0
+    line_height = 8
     monitor = 0
-    padding = 8
+    padding = 15
     plain_text = no
-    separator_color = "#757575"
-    separator_height = 2
+    separator_color = frame
+    separator_height = 1
     show_age_threshold = 60
     sort = yes
     startup_notification = false
@@ -28,10 +28,8 @@
 
     # Browser for opening urls in context menu.
     browser = firefox-developer -new-tab
-
-[frame]
-    width = 1
-    color = "#666666"
+    frame_width = 1
+    frame_color = "#6D98A0"
 
 [shortcuts]
     close = ctrl+space
@@ -39,16 +37,16 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#1F2123"
-    foreground = "#f3f4f5"
+    background = "#1A1F16"
+    foreground = "#E0E1E2"
     timeout = 5
 
 [urgency_normal]
-    background = "#1F2123"
-    foreground = "#f3f4f5"
+    background = "#1A1F16"
+    foreground = "#E0E1E2"
     timeout = 10
 
 [urgency_critical]
-    background = "#A62926"
-    foreground = "#f3f4f5"
+    background = "#7A0103"
+    foreground = "#E0E1E2"
     timeout = 0
