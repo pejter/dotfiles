@@ -7,8 +7,6 @@ Xft.hinting:   true
 Xft.autohint:  0
 Xft.hintstyle: hintslight
 
-#define t_transparent #00000000
-#define t_background  #50424242
 #define t_black       #1A1F16
 #define t_grey        #424242
 #define t_red         #C91010
@@ -16,11 +14,13 @@ Xft.hintstyle: hintslight
 #define t_green       #4EBA4F
 #define t_yellow      #F2C100
 #define t_orange      #FE9D00
-#define t_blue        #219AB2
+#define t_blue        #1C899E
 #define t_blue_bright #1780D2
 #define t_purple      #41299B
 #define t_cyan        #97BEC6
 #define t_white       #E0E1E2
+#define t_transparent #00000000
+#define t_background  #701A1F16
 
 URxvt.font: xft:Source Code Pro:size=9,xft:FontAwesome:size=9
 URxvt.scrollBar: False
@@ -83,10 +83,10 @@ rofi.color-enabled: true
 rofi.fuzzy: true
 rofi.hide-scrollbar: true
 !States: bg, fg, bgalt, hlbg, hlfg
-rofi.color-normal: t_transparent,t_white,t_transparent,t_transparent,t_blue
-rofi.color-urgent: t_transparent,t_red,t_transparent,t_transparent,t_blue
-rofi.color-active: t_transparent,t_transparent,t_transparent,t_blue
-!states: background, border
+rofi.color-normal: t_transparent,t_white,t_transparent,t_background,t_blue_bright
+rofi.color-urgent: t_transparent,t_red,t_transparent,t_background,t_blue_bright
+rofi.color-active: t_transparent,t_transparent,t_background,t_blue_bright
+!States: background, border
 rofi.color-window: t_background,t_grey
 
 rofi.separator-style: solid
@@ -95,16 +95,16 @@ rofi.bw: 0
 rofi.columns: 1
 rofi.padding: 300
 rofi.eh: 1
-!rofi.line-margin: 35
+rofi.line-padding: 5
 
 !rofi.fullscreen: true
 rofi.xoffset: 0
-rofi.yoffset: -50
+rofi.yoffset: -30
 !rofi.opacity: 100
 !rofi.fake-transparency: false
 rofi.location: 2
 rofi.width: 100
 rofi.font: Source Code Pro 14
-rofi.lines: 9
+rofi.lines: 5
 
 rofi.border-radius: 1
