@@ -11,7 +11,7 @@ Xft.hintstyle: hintslight
 #define t_grey        #424242
 #define t_red         #C91010
 #define t_red_bright  #D34610
-#define t_green       #4EBA4F
+#define t_green       #39B32C
 #define t_yellow      #F2C100
 #define t_orange      #FE9D00
 #define t_blue        #1C899E
