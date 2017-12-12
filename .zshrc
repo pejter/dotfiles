@@ -56,6 +56,7 @@ plugins=(git ssh-agent docker docker-compose)
   export PATH="/home/pejter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+source .zshkeys
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
