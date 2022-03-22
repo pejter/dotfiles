@@ -1,0 +1,7 @@
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme '__[gtk_theme]__'
+    gsettings set $gnome-schema icon-theme '__[gtk_icons]__'
+    gsettings set $gnome-schema font-name '__[gtk_font]__'
+}

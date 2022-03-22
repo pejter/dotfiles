@@ -1,0 +1,29 @@
+# {dotfiles}/bombadil.toml
+dotfiles_dir = "dotfiles"
+
+[settings]
+vars = ["vars/palette.toml", "vars/misc.toml"]
+posthooks = ["sway reload"]
+
+[settings.dots]
+gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
+
+zsh = { source = "zsh/zshrc", target = ".zshrc" }
+zsh-env = { source = "zsh/zshenv", target = ".zshenv" }
+zsh-profile = { source = "zsh/zprofile", target = ".zprofile" }
+nano = { source = "nano", target = ".config/nano" }
+
+sway = { source = "sway", target = ".config/sway" }
+kanshi = { source = "kanshi", target = ".config/kanshi" }
+wallpapers = { source = "wallpapers", target = ".wallpapers" }
+alacritty = { source = "alacritty", target = ".config/alacritty" }
+waybar = { source = "waybar", target = ".config/waybar" }
+wofi = { source = "wofi", target = ".config/wofi" }
+mako = { source = "mako", target = ".config/mako" }
+
+
+gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0", vars = "sway/vars.toml" }
+gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0", vars = "sway/vars.toml" }
+xres = { source = "gtk/.Xresources", target = ".Xresources" }
+xdg_dirs = { source = "xdg/user-dirs.dirs", target = ".config/user-dirs.dirs" }
+electron = { source = "env/electron-flags.conf", target = ".config/electron-flags.conf" }

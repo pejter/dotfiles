@@ -1,0 +1,39 @@
+markup=1
+actions=1
+default-timeout=5000
+
+# Format
+font=DejaVu Sans 9
+width=400
+padding=10
+border-size=0
+border-radius=5
+background-color=__[background]__
+text-color=__[white]__
+format=<b>%s</b> <span color="__[light_white]__">(%a)</span>\n%b
+
+# icons
+icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/Papirus
+
+# Hidden format
+[hidden]
+format=Hidden: %h [%t]
+
+[urgency=low]
+text-color=__[white]__
+
+[urgency=low actionable]
+border-color=__[light_black]__
+
+[urgency=normal actionable]
+border-color=__[blue]__
+
+[urgency=high]
+border-color=__[red]__
+ignore-timeout=1
+
+[urgency=high actionable]
+border-color=__[purple]__
+
+[app-name=playerctl]
+max-icon-size=96

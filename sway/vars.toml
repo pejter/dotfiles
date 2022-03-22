@@ -1,0 +1,31 @@
+terminal = "alacritty"
+
+wallpaper = "~/.wallpapers/material_wallpaper.png"
+
+gtk_font = "Ubuntu 10"
+gtk_icons = "Papirus-Dark"
+gtk_theme = "Nordic-darker"
+
+client_focused_border = "%background"
+client_focused_background = "%background"
+client_focused_text = "%background"
+client_focused_indicator = "%blue"
+client_focused_child_border = "%background"
+
+client_focused_inactive_border = "%light_white"
+client_focused_inactive_background = "%background"
+client_focused_inactive_text = "%background"
+client_focused_inactive_indicator = "%light_black"
+client_focused_inactive_child_border = "%light_white"
+
+client_unfocused_border = "%light_white"
+client_unfocused_background = "%background"
+client_unfocused_text = "%background"
+client_unfocused_indicator = "%light_black"
+client_unfocused_child_border = "%light_white"
+
+client_urgent_border = "%red"
+client_urgent_background = "%background"
+client_urgent_text = "%background"
+client_urgent_indicator = "%light_black"
+client_urgent_child_border = "%light_white"

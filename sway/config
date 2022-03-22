@@ -1,0 +1,29 @@
+output * bg __[wallpaper]__ fill
+
+### Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term __[terminal]__
+set $bar waybar
+set $launcher "wofi --show drun"
+set $lock "swaylock -c 111111"
+
+exec swayidle -w \
+	timeout 600 'swaylock -f -c 111111' \
+	timeout 1200 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 111111'
+
+include workspaces
+include color_vars
+include colors
+include window_placement
+include key_bindings
+include inputs
+include bar
+include gtk
+include autostart

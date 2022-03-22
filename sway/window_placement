@@ -1,0 +1,8 @@
+# Assignment
+assign [app_id="firefox"] $ws1
+assign [app_id="Code"] $ws3
+assign [app_id="sublime_merge"] $ws5
+assign [class="Spotify"] $ws10
+
+# Set pop-ups & notifications as always floating
+for_window [app_id="pavucontrol"] floating enable

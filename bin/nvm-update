@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+set -e
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+for version in $@
+do
+  expected_version=$version
+  nvm use $expected_version
+  current_version=$(nvm current)
+
+  if [[ "$current_version" == *"v$expected_version"* ]]; then
+    next_version=$(nvm version-remote $expected_version)
+    if [ "$current_version" != "$next_version" ]; then
+      previous_version=$current_version
+      nvm install --latest-npm --reinstall-packages-from="$previous_version" $next_version
+      nvm uninstall "$previous_version"
+    else
+      nvm install-latest-npm
+    fi
+  fi
+done

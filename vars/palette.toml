@@ -1,0 +1,69 @@
+# Colours
+# background = "#1A1F16"
+# foreground = "%white"
+
+# black = "#1A1F16"
+# red = "#C91010"
+# green = "#39B32C"
+# yellow = "#F2C100"
+# blue = "#1C899E"
+# magenta = "#41299B"
+# cyan = "#97BEC6"
+# white = "#E0E1E2"
+
+# light_black = "#424242"
+# light_red = "#D34610"
+# light_green = "#39B32C"
+# light_yellow = "#F2C100"
+# light_blue = "#1780D2"
+# light_magenta = "#41299B"
+# light_cyan = "#97BEC6"
+# light_white = "#E0E1E2"
+
+
+# okno
+# background = "#2e3440"
+foreground = "#d8dee9"
+
+# black = "#3b4252"
+# red = "#bf616a"
+# green = "#a3be8c"
+# yellow = "#ebcb8b"
+# blue = "#81a1c1"
+# magenta = "#b48ead"
+# cyan = "#88c0d0"
+# white = "#e5e9f0"
+
+# light_black = "#4c566a"
+# light_red = "#bf616a"
+# light_green = "#a3be8c"
+# light_yellow = "#ebcb8b"
+# light_blue = "#81a1c1"
+# light_magenta = "#b48ead"
+# light_cyan = "#8fbcbb"
+# light_white = "#eceff4"
+
+# Alacritty new
+background = "#111111"
+# foreground = "#D3D7CF"
+
+black = "#2E3436"
+red = "#CC0000"
+green = "#4E9A06"
+yellow = "#C4A000"
+blue = "#3465A4"
+magenta = "#75507B"
+cyan = "#06989A"
+white = "#D8DEE9"
+
+light_black = "#555753"
+light_red = "#EF2929"
+light_green = "#8AE234"
+light_yellow = "#FCE94F"
+light_blue = "#729FCF"
+light_magenta = "#AD7FA8"
+light_cyan = "#34E2E2"
+light_white = "#ECEFF4"
+
+purple = "%magenta"
+light_purple = "%light_magenta"

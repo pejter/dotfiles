@@ -1,0 +1,57 @@
+[core]
+    autocrlf = false
+    pager = delta
+
+[user]
+    name = Piotr Łuczak
+    email = piotrluczak1995@gmail.com
+
+[push]
+    default = current
+
+[remote]
+    pushDefault = origin
+
+[color]
+    ui = auto
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[git-up "fetch"]
+    all = true
+    prune = true
+
+[git-up "rebase"]
+    show-hashes = true
+
+[alias]
+    stash-clone = "!\
+        repo=$1 && \
+        cd ${GIT_PREFIX:-.} && \
+        git clone -o upstream \"advtp-upstream:${repo}.git\" && \
+        git -C \"${repo}\" remote add origin \"advtp-personal:${repo}.git\" && \
+        :"
+    lg = log --all --abbrev-commit --date=relative --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    s = status -s
+    ds = diff --staged
+    pull-pr = "!f() { git fetch $1 refs/pull-requests/$2/from:$1-pull-request-$2; git checkout $1-pull-request-$2;} ; f"
+
+
+[url "ssh://git@stash.f-secure.com/advtp/"]
+    insteadOf=advtp-upstream:
+
+[url "ssh://git@stash.f-secure.com/~luczpi/"]
+    insteadOf=advtp-personal:
+
+[includeIf "gitdir:~/stash/**"]
+    path = ~/stash/.gitconfig

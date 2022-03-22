@@ -1,0 +1,122 @@
+#!/usr/bin/env zsh
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# First update pyenv to get any new python versions
+pyenv update
+
+# Exit script if any errors occur (commands return non-zero status)
+set -e
+# If any command in a pipe returns an error, fail the whole pipe
+set -o pipefail
+
+# Get currently installed main pythons with derived virtualenvs
+MAIN_PYTHONS=($(pyenv versions --skip-aliases --bare | grep -v / | cut -f 1 -d / | uniq))
+
+for VERSION in $MAIN_PYTHONS; do
+    echo
+    echo "Checking for micro version updates for python $VERSION."
+    echo
+
+    # Get the latest micro version for each A.B python
+    MAJOR_MINOR="$(echo $VERSION | cut -f 1,2 -d .)"
+    LATEST_MICRO=$(pyenv install -l | grep -E "(^| )$MAJOR_MINOR" | sort -b -V | tail -n 1 | sed -e 's/^[ \t]*//')
+
+    # If there are no new micro versions we move on to the next main Python
+    if [[ "$VERSION" = "$LATEST_MICRO" ]]; then
+        echo
+        echo -n "Version $VERSION is already the latest version in the"
+        echo " $MAJOR_MINOR.x series."
+        echo "Upgrading basic packages (pip, setuptools, wheel)"
+        echo
+        export PYENV_VERSION="$LATEST_MICRO"
+        pip install --upgrade pip setuptools wheel
+        unset PYENV_VERSION
+        continue
+    fi
+
+    echo
+    echo "Found a new micro version for python $VERSION!"
+    echo "$VERSION -> $LATEST_MICRO"
+    echo
+
+    # Save old global package list
+    export PYENV_VERSION="$VERSION"
+    # Install the latest micro and upgrade pip
+    echo "Installing $LATEST_MICRO"
+    pyenv install -s "$LATEST_MICRO"
+    pyenv rehash
+    export PYENV_VERSION="$LATEST_MICRO"
+    echo "Upgrading basic packages (pip, setuptools, wheel)"
+    pip install --upgrade pip setuptools wheel
+    # Install global packages
+    echo "Reinstalling old packages"
+    pyenv migrate $VERSION $LATEST_MICRO
+
+    # Get all virtual environments for this minor version
+    set +e
+    VENVS=($(pyenv versions --skip-aliases --bare | grep $VERSION/ | cut -f 3 -d /))
+    set -e
+    N_VENVS="$(echo $VENVS | wc -w)"
+    echo
+    echo "Found $N_VENVS virtual environments built with python $VERSION."
+    echo
+
+    for ENV in $VENVS; do
+        echo
+        echo "Upgrading micro python version of '$ENV' virtualenv: $VERSION-> $LATEST_MICRO"
+        echo
+
+        ENV_PIP_REQS="__tmp_${ENV}_requirements.pip"
+
+        export PYENV_VERSION="$ENV"     # "Activate" the virtualenv
+        pip freeze > $ENV_PIP_REQS
+        pyenv uninstall -f "$ENV"
+        pyenv virtualenv "$LATEST_MICRO" "$ENV"
+        pyenv rehash
+
+        echo
+        echo "Re-installing $ENV with all its packages."
+        echo
+        # PYENV_VERSION is still set. No need to update it since it's just a
+        # string with the virtualenv name, which did not change.
+        pip install --upgrade pip setuptools wheel
+
+        # If numpy is present install it manually, otherwise some package
+        # installations might fail due to mall-formed installation requirements
+        set +e     # Temporarily disabling error checking to catch empty grep result
+        NUMPY="$(grep numpy= $ENV_PIP_REQS)"
+        set -e
+        if [[ -n $NUMPY ]]; then
+            pip install $NUMPY
+        fi
+
+        # Installation of old versions of statsmodels may fail due to mall-formed
+        # installation requirements. To prevent this, we install all other
+        # packages first then try the full requirements file again
+        if [[ -n "$(grep statsmodels $ENV_PIP_REQS)" ]]; then
+            sed -e '/statsmodels/d' $ENV_PIP_REQS | pip install -r /dev/stdin
+        fi
+        pip install -r $ENV_PIP_REQS
+
+    done
+
+    # Check for any existing environments for the old minor version
+    if [[ -z "$(pyenv versions --skip-aliases --bare | grep $VERSION/)" ]]; then
+        echo
+        echo -n "No more virtualenvs for python $VERSION."
+        echo " Deleting this minor version..."
+        echo
+        pyenv uninstall -f "$VERSION"
+    fi
+
+done
+
+# Final cleanup
+unset PYENV_VERSION
+find . -name "__tmp_*_requirements.pip" -delete
+MAIN_PYTHONS=($(pyenv versions --skip-aliases --bare | grep -v / | cut -f 1 -d / | uniq | sort --version-sort | tac))
+echo "Setting global python versions to ${MAIN_PYTHONS} advtp-aws-deployment"
+pyenv global $MAIN_PYTHONS advtp-aws-deployment

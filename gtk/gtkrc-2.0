@@ -1,0 +1,7 @@
+gtk-theme-name="__[gtk_theme]__"
+gtk-icon-theme-name="__[gtk_icons]__"
+gtk-font-name="__[gtk_font]__"
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"

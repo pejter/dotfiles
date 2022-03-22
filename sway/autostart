@@ -1,0 +1,5 @@
+# On start
+exec mako
+exec kanshi
+exec udiskie
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
