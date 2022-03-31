@@ -6,6 +6,9 @@
     name = Piotr Łuczak
     email = piotrluczak1995@gmail.com
 
+[rebase]
+    autoStash = true
+
 [push]
     default = current
 
