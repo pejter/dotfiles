@@ -6,3 +6,5 @@ assign [class="Spotify"] $ws10
 
 # Set pop-ups & notifications as always floating
 for_window [app_id="pavucontrol"] floating enable
+for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Firefox — Sharing Indicator"] nofocus
