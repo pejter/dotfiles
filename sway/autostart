@@ -3,3 +3,7 @@ exec mako
 exec kanshi
 exec udiskie
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec dbus-update-activation-environment --systemd \
+    DISPLAY \
+    WAYLAND_DISPLAY \
+    XDG_CURRENT_DESKTOP=sway
