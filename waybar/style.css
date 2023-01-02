@@ -21,6 +21,10 @@ window#waybar {
 }
 */
 
+window label:disabled {
+    color: white;
+}
+
 #workspaces button {
     padding: 0 7px;
     background: transparent;
@@ -43,6 +47,7 @@ window#waybar {
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
+    color: white;
     padding: 0 5px;
     margin-right: 5px;
 }
