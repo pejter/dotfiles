@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "__[font]__, sans-serif";
+    font-family: "{{font}}, sans-serif";
     font-size: 13px;
     min-height: 0;
 }
@@ -13,7 +13,7 @@ window#waybar {
 
 #window {
     font-weight: bold;
-    font-family: "__[font]__";
+    font-family: "{{font}}";
 }
 /*
 #workspaces {
@@ -28,17 +28,17 @@ window label:disabled {
 #workspaces button {
     padding: 0 7px;
     background: transparent;
-    color: __[white]__;
+    color: {{white}};
     border-top: 2px solid transparent;
 }
 
 #workspaces button.focused {
-    color: __[light_white]__;
-    border-color: __[light_blue]__;
+    color: {{light_white}};
+    border-color: {{light_blue}};
 }
 
 #workspaces button.urgent {
-    border-color: __[light_red]__;
+    border-color: {{light_red}};
 }
 
 #mode {

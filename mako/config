@@ -8,9 +8,9 @@ width=400
 padding=10
 border-size=0
 border-radius=5
-background-color=__[background]__
-text-color=__[white]__
-format=<b>%s</b> <span color="__[light_white]__">(%a)</span>\n%b
+background-color={{background}}
+text-color={{white}}
+format=<b>%s</b> <span color="{{light_white}}">(%a)</span>\n%b
 
 # icons
 icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/Papirus
@@ -20,20 +20,20 @@ icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/Papirus
 format=Hidden: %h [%t]
 
 [urgency=low]
-text-color=__[white]__
+text-color={{white}}
 
 [urgency=low actionable]
-border-color=__[light_black]__
+border-color={{light_black}}
 
 [urgency=normal actionable]
-border-color=__[blue]__
+border-color={{blue}}
 
 [urgency=high]
-border-color=__[red]__
+border-color={{red}}
 ignore-timeout=1
 
 [urgency=high actionable]
-border-color=__[purple]__
+border-color={{purple}}
 
 [app-name=playerctl]
 max-icon-size=96
