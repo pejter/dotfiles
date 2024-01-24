@@ -12,6 +12,7 @@ zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zsh-env = { source = "zsh/zshenv", target = ".zshenv" }
 zsh-profile = { source = "zsh/zprofile", target = ".zprofile" }
 nano = { source = "nano", target = ".config/nano" }
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 
 sway = { source = "sway", target = ".config/sway" }
 kanshi = { source = "kanshi", target = ".config/kanshi" }
