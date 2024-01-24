@@ -7,15 +7,17 @@ unsetopt beep
 # Keychain options
 zstyle :omz:plugins:keychain options --quiet
 zstyle :omz:plugins:keychain agents ssh
-# zstyle :omz:plugins:keychain identities id_rsa ec2-user-ci ec2-user-stg ec2-user-prd
 
 # Completion
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
 zstyle :compinstall filename '$HOME/.zshrc'
 
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 # Oh-my-zsh settings
-DEFAULT_USER="luczpi"
+DEFAULT_USER="pejter"
 COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 bindkey -e
@@ -60,9 +62,3 @@ alias docker-aws='docker run --rm -it -v ~/.aws:/root/.aws -e AWS_PROFILE'
 alias diffoscope='docker-here registry.salsa.debian.org/reproducible-builds/diffoscope'
 alias aws-cli='docker run --rm -it -v ~/.aws:/root/.aws -v $PWD:/aws amazon/aws-cli'
 alias dc='docker-compose'
-
-alias kinit='kinit -r 7d luczpi@FI.F-SECURE.COM -kt ~/.config/luczpi.keytab'
-alias vu='systemctl start vpn'
-alias vd='systemctl stop vpn'
-alias vr='systemctl restart vpn'
-alias vs='systemctl status vpn --full --no-pager'
