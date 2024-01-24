@@ -1,0 +1,32 @@
+[colors.bright]
+black = "{{light_black}}"
+blue = "{{light_blue}}"
+cyan = "{{light_cyan}}"
+green = "{{light_green}}"
+magenta = "{{light_magenta}}"
+red = "{{light_red}}"
+white = "{{light_white}}"
+yellow = "{{light_yellow}}"
+
+[colors.normal]
+black = "{{black}}"
+blue = "{{blue}}"
+cyan = "{{cyan}}"
+green = "{{green}}"
+magenta = "{{magenta}}"
+red = "{{red}}"
+white = "{{white}}"
+yellow = "{{yellow}}"
+
+[colors.primary]
+background = "{{background}}"
+foreground = "{{foreground}}"
+
+[cursor]
+style = "beam"
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = {{opacity}}
