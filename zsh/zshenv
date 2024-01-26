@@ -5,6 +5,7 @@ export EDITOR=nvim
 export GUI=1
 export NNN_OPTS="dc"
 export NNN_OPENER=/usr/share/nnn/plugins/nuke
+export NNN_PLUG='o:fzopen;d:diffs;v:imgview'
 
 # Go
 if [ -d "/usr/local/go/bin" ]; then
