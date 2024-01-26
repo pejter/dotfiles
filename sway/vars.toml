@@ -2,7 +2,7 @@ terminal = "alacritty"
 
 wallpaper = "~/.wallpapers/material_wallpaper.png"
 
-gtk_font = "Ubuntu 10"
+gtk_font = "DejaVu Sans 10"
 gtk_icons = "Papirus-Dark"
 gtk_theme = "Nordic-darker"
 

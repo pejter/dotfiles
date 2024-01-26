@@ -3,7 +3,7 @@ actions=1
 default-timeout=5000
 
 # Format
-font=DejaVu Sans 9
+font={{font}} 9
 width=400
 padding=10
 border-size=0
