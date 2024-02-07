@@ -6,6 +6,9 @@
     name = Piotr Łuczak
     email = piotrluczak1995@gmail.com
 
+[commit]
+	gpgSign = true
+
 [pull]
     rebase = true
 

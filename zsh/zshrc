@@ -6,7 +6,7 @@ unsetopt beep
 
 # Keychain options
 zstyle :omz:plugins:keychain options --quiet
-zstyle :omz:plugins:keychain agents ssh
+zstyle :omz:plugins:keychain agents ssh,gpg
 
 # Completion
 zstyle ':completion:*' group-name ''
@@ -19,7 +19,7 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # Oh-my-zsh settings
 DEFAULT_USER="pejter"
 COMPLETION_WAITING_DOTS="true"
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 bindkey -e
 
 # Antigen
