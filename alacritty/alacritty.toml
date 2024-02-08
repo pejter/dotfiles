@@ -25,6 +25,14 @@ foreground = "{{foreground}}"
 [cursor]
 style = "beam"
 
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
+
+[font.normal]
+family = "{{font}}"
+
 [env]
 TERM = "xterm-256color"
 
