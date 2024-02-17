@@ -5,3 +5,10 @@ vim.opt.softtabstop = -1
 
 -- Line numbers
 vim.wo.number = true
+
+-- Word wrap
+vim.opt.wrap = false
+
+-- No highlight during search
+vim.opt.hlsearch = false
+
