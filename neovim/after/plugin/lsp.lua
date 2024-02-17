@@ -10,7 +10,9 @@ end)
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		-- "tsserver",
+		"tsserver",
+		"pylsp",
+		"gopls",
 		"rust_analyzer",
 		"dockerls",
 		"docker_compose_language_service",
