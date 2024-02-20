@@ -12,3 +12,22 @@ vim.opt.wrap = false
 -- No highlight during search
 vim.opt.hlsearch = false
 
+-- Show whitespace
+vim.opt.list = true
+vim.opt.listchars = {
+    space = "⋅",
+    eol = "↴",
+    tab = "▎_",
+    -- tab = "|_>",
+    trail = "•",
+    extends = "❯",
+    precedes = "❮",
+    nbsp = "",
+}
+vim.opt.fillchars = {
+    fold = " ",
+    foldsep = " ",
+    foldopen = "",
+    foldclose = "",
+    diff = "╱",
+}
