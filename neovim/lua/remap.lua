@@ -20,9 +20,9 @@ wk.register({
 	p = {
 		name = "Project",
 		l = { "<cmd>Telescope file_browser<cr>", "List" },
-		o = { "<cmd>Telescope find_files<cr>", "Open File" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" }, 
-		f = { "<cmd>Telescope grep_string<cr>", "Find" }, 
+		o = { "<cmd>Telescope find_files hidden=true<cr>", "Open File" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		f = { "<cmd>Telescope grep_string<cr>", "Find" },
 	},
 	g = {
 		name = "Git",
