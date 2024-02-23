@@ -14,9 +14,7 @@ vim.keymap.set("i", "<A-j>", "<Esc>:move .+1<cr>gi")
 vim.keymap.set("v", "<A-k>", ":move '<-2<cr>gv")
 vim.keymap.set("v", "<A-j>", ":move '>+1<cr>gv")
 
--- Yank to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("i", "<C-CR>", "<Esc>o")
 
 wk.register({
 	p = {
@@ -31,7 +29,10 @@ wk.register({
 		s = { vim.cmd.Git, "Status" },
 		o = { "<cmd>Telescope git_files<cr>", "Open File" },
 	},
-	x = { "<Cmd>!chmod +x %<cr>", "Set executable flag on current file" }
+	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
+	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
+	y = { "\"+y", "Yank to system clipboard", mode = { "n", "v" } },
+	x = { "<Cmd>!chmod +x %<cr>", "Set executable flag on current file" },
 }, { prefix = "<leader>" })
 
 wk.register({
