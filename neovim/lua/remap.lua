@@ -31,11 +31,12 @@ wk.register({
 	},
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
 	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
-	y = { "\"+y", "Yank to system clipboard", mode = { "n", "v" } },
+	y = { [["+y]], "Yank to system clipboard", mode = { "n", "v" } },
 	x = { "<Cmd>!chmod +x %<cr>", "Set executable flag on current file" },
+	d = { [["_d]], "Delete (without copying)", mode = { "n", "v" } },
 }, { prefix = "<leader>" })
 
 wk.register({
-	p = { "\"_dP", "Paste (without replacing current register)" }
+	p = { [["_dP]], "Paste (without replacing current register)" }
 }, { prefix = "<leader>", mode = "x" })
 
