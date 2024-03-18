@@ -1,6 +1,6 @@
 # Assignment
 assign [app_id="firefox"] $ws1
-assign [app_id="code-url-handler"] $ws3
+assign [class="Code"] $ws3
 assign [app_id="sublime_merge"] $ws5
 assign [class="Spotify"] $ws10
 
