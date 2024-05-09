@@ -16,6 +16,8 @@ vim.keymap.set("v", "<A-j>", ":move '>+1<cr>gv")
 
 vim.keymap.set("i", "<C-CR>", "<Esc>o")
 
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 wk.register({
 	p = {
 		name = "Project",
@@ -29,6 +31,7 @@ wk.register({
 		s = { vim.cmd.Git, "Status" },
 		o = { "<cmd>Telescope git_files<cr>", "Open File" },
 	},
+	t = { ':vsplit term://zsh<cr>', "Terminal" },
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
 	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
 	y = { [["+y]], "Yank to system clipboard", mode = { "n", "v" } },
