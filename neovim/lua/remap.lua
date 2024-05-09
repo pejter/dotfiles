@@ -31,7 +31,7 @@ wk.register({
 		s = { vim.cmd.Git, "Status" },
 		o = { "<cmd>Telescope git_files<cr>", "Open File" },
 	},
-	t = { ':vsplit term://zsh<cr>', "Terminal" },
+	t = { ':tabnew term://zsh<cr>', "Terminal" },
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
 	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
 	y = { [["+y]], "Yank to system clipboard", mode = { "n", "v" } },
