@@ -31,6 +31,10 @@ wk.register({
 		s = { vim.cmd.Git, "Status" },
 		o = { "<cmd>Telescope git_files<cr>", "Open File" },
 	},
+	f = {
+		name = "File",
+		r = { "<cmd>Neotree reveal<cr>", "Reveal in sidebar"},
+	},
 	t = { ':tabnew term://zsh<cr>', "Terminal" },
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
 	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
