@@ -13,6 +13,7 @@ local plugins = {
 	{ "tpope/vim-fugitive" }, 
 	{ "mg979/vim-visual-multi" }, 
 	{ "m4xshen/autoclose.nvim" },
+	{ 'numToStr/Comment.nvim' },
 
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },

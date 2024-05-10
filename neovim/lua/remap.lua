@@ -19,13 +19,6 @@ vim.keymap.set("i", "<C-CR>", "<Esc>o")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 wk.register({
-	p = {
-		name = "Project",
-		l = { "<cmd>Telescope file_browser<cr>", "List" },
-		o = { "<cmd>Telescope find_files hidden=true<cr>", "Open File" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-		f = { "<cmd>Telescope grep_string<cr>", "Find" },
-	},
 	g = {
 		name = "Git",
 		s = { vim.cmd.Git, "Status" },
@@ -33,7 +26,11 @@ wk.register({
 	},
 	f = {
 		name = "File",
-		r = { "<cmd>Neotree reveal<cr>", "Reveal in sidebar"},
+		l = { "<cmd>Telescope file_browser<cr>", "List" },
+		o = { "<cmd>Telescope find_files hidden=true<cr>", "Open" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent" },
+		f = { "<cmd>Telescope grep_string<cr>", "Find" },
+		v = { "<cmd>Neotree reveal<cr>", "Reveal in sidebar"},
 	},
 	t = { ':tabnew term://zsh<cr>', "Terminal" },
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
