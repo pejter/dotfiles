@@ -3,6 +3,9 @@ require("neo-tree").setup({
 		hijack_netrw_behavior = "open_default",
 		filtered_items = {
 			visible =  true,
-		}
+		},
+		follow_current_file = {
+			enabled = true,
+		},
 	}
 })
