@@ -1,49 +1,49 @@
 [core]
-    autocrlf = false
-    pager = delta
+	autocrlf = false
+	pager = delta
 
 [user]
-    name = Piotr Łuczak
-    email = piotrluczak1995@gmail.com
+	name = Piotr Łuczak
+	email = piotrluczak1995@gmail.com
 
 [commit]
 	gpgSign = true
 
 [pull]
-    rebase = true
+	rebase = true
 
 [rebase]
-    autoStash = true
+	autoStash = true
 
 [push]
-    default = current
+	default = current
 
 [remote]
-    pushDefault = origin
+	pushDefault = origin
 
 [color]
-    ui = auto
+	ui = auto
 
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
-    navigate = true  # use n and N to move between diff sections
+	navigate = true  # use n and N to move between diff sections
 
 [merge]
-    conflictstyle = diff3
+	conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+	colorMoved = default
 
 [git-up "fetch"]
-    all = true
-    prune = true
+	all = true
+	prune = true
 
 [git-up "rebase"]
-    show-hashes = true
+	show-hashes = true
 
 [alias]
-    lg = log --all --abbrev-commit --date=relative --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    s = status -s
-    ds = diff --staged
+	lg = log --all --abbrev-commit --date=relative --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	s = status -s
+	ds = diff --staged
