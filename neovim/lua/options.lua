@@ -5,6 +5,7 @@ vim.opt.softtabstop = -1
 
 -- Line numbers
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Word wrap
 vim.opt.wrap = false
