@@ -69,13 +69,16 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
 	preselect = 'item',
 	completion = {
 		completeopt = 'menu,menuone,noinsert'
 	},
-	formatting = cmp_format,
+	formatting = {
+		format = lspkind.cmp_format(),
+	},
 	window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
