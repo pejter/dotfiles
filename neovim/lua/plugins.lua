@@ -11,6 +11,7 @@ local plugins = {
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" }, 
+	{ "tpope/vim-surround" },
 	{ "mg979/vim-visual-multi" }, 
 	{ "m4xshen/autoclose.nvim" },
 	{ 'numToStr/Comment.nvim' },
