@@ -3,26 +3,29 @@ dotfiles_dir = "dotfiles"
 
 [settings]
 vars = ["vars/palette.toml", "vars/misc.toml"]
-posthooks = ["sway reload"]
 
 [settings.dots]
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 
+alacritty = { source = "alacritty", target = ".config/alacritty" }
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zsh-env = { source = "zsh/zshenv", target = ".zshenv" }
-zsh-profile = { source = "zsh/zprofile", target = ".zprofile" }
+
 nano = { source = "nano", target = ".config/nano" }
 neovim = { source = "neovim", target = ".config/nvim" }
-starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 
+[profiles.sway]
+posthooks = ["sway reload"]
+
+[profiles.sway.dots]
 sway = { source = "sway", target = ".config/sway" }
+zsh-profile = { source = "zsh/zprofile", target = ".zprofile" }
 kanshi = { source = "kanshi", target = ".config/kanshi" }
 wallpapers = { source = "wallpapers", target = ".wallpapers" }
-alacritty = { source = "alacritty", target = ".config/alacritty" }
 waybar = { source = "waybar", target = ".config/waybar" }
 wofi = { source = "wofi", target = ".config/wofi" }
 mako = { source = "mako", target = ".config/mako" }
-
 
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0", vars = "sway/vars.toml" }
 gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0", vars = "sway/vars.toml" }
