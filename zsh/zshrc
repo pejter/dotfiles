@@ -19,11 +19,16 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # Oh-my-zsh settings
 DEFAULT_USER="pejter"
 COMPLETION_WAITING_DOTS="true"
+SHARE_PATH="/usr/share"
 
 bindkey -e
 
+if command -v brew >/dev/null 2>&1; then
+	fpath=( "$HOMEBREW_PREFIX/share/zsh/site-functions" "${fpath[@]}" )
+	SHARE_PATH="$HOMEBREW_PREFIX/share"
+fi
 # Antigen
-source /usr/share/zsh/share/antigen.zsh
+source $SHARE_PATH/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle fd
@@ -40,14 +45,13 @@ antigen bundle zsh-users/zsh-completions
 
 antigen apply
 
-fpath=( ~/.zfunc "${fpath[@]}" )
 
-if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
-    source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh
+if [ -f $SHARE_PATH/nnn/quitcd/quitcd.bash_sh_zsh ]; then
+	source $SHARE_PATH/nnn/quitcd/quitcd.bash_sh_zsh
 fi
 
-if [ -f /usr/share/autojump/autojump.zsh ]; then
-    source /usr/share/autojump/autojump.zsh
+if [ -f $SHARE_PATH/autojump/autojump.zsh ]; then
+	source $SHARE_PATH/autojump/autojump.zsh
 fi
 
 # Starship prompt
