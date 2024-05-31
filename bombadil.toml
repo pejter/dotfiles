@@ -32,3 +32,6 @@ gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0", vars = "sway/vars.t
 xres = { source = "gtk/.Xresources", target = ".Xresources" }
 xdg_dirs = { source = "xdg/user-dirs.dirs", target = ".config/user-dirs.dirs" }
 electron = { source = "env/electron-flags.conf", target = ".config/electron-flags.conf" }
+
+[profiles.work]
+vars = ["work/vars.toml"]

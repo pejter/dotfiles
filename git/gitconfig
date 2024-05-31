@@ -4,7 +4,7 @@
 
 [user]
 	name = Piotr Łuczak
-	email = piotrluczak1995@gmail.com
+	email = {{ email }}
 
 [commit]
 	gpgSign = true

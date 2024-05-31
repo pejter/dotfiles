@@ -17,7 +17,7 @@ zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Oh-my-zsh settings
-DEFAULT_USER="pejter"
+DEFAULT_USER="{{ username }}"
 COMPLETION_WAITING_DOTS="true"
 SHARE_PATH="/usr/share"
 
