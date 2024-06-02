@@ -29,7 +29,9 @@ wk.register({
 		l = { "<cmd>Telescope file_browser<cr>", "List" },
 		o = { "<cmd>Telescope find_files hidden=true<cr>", "Open" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent" },
-		f = { "<cmd>Telescope grep_string<cr>", "Find" },
+		f = { "<cmd>Telescope grep_string<cr>", "Find (grep_string)" },
+		s = { "<cmd>Telescope live_grep<cr>", "Search (live_grep)" },
+		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 		v = { "<cmd>Neotree reveal<cr>", "Reveal in sidebar"},
 	},
 	t = { ':tabnew term://zsh<cr>', "Terminal" },
@@ -38,6 +40,7 @@ wk.register({
 	y = { [["+y]], "Yank to system clipboard", mode = { "n", "v" } },
 	x = { "<Cmd>!chmod +x %<cr>", "Set executable flag on current file" },
 	d = { [["_d]], "Delete (without copying)", mode = { "n", "v" } },
+	h = { "<cmd>Telescope help_tags<cr>", "Help" },
 }, { prefix = "<leader>" })
 
 wk.register({
