@@ -10,7 +10,7 @@ local plugins = {
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{ "mbbill/undotree" },
-	{ "tpope/vim-fugitive" }, 
+	{ "tpope/vim-fugitive", dependencies = { "tpope/vim-rhubarb" } }, 
 	{ "jeffkreeftmeijer/vim-numbertoggle" },
 	{ "tpope/vim-surround" },
 	{ "mg979/vim-visual-multi" }, 
