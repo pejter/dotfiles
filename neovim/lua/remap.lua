@@ -34,6 +34,10 @@ wk.register({
 		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 		v = { "<cmd>Neotree reveal<cr>", "Reveal in sidebar"},
 	},
+	b = {
+		name = "Buffer",
+		q = { "<cmd>bprevious <bar>bdelete #<cr>", "Close" },
+	},
 	t = { ':tabnew term://zsh<cr>', "Terminal" },
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
 	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
