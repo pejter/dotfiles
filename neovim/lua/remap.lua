@@ -37,6 +37,7 @@ wk.register({
 	b = {
 		name = "Buffer",
 		q = { "<cmd>bprevious <bar>bdelete #<cr>", "Close" },
+		f = { vim.lsp.buf.format, "Format" },
 	},
 	t = { ':tabnew term://zsh<cr>', "Terminal" },
 	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
