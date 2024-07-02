@@ -1,3 +1,6 @@
+-- Open vsplit to the right
+vim.opt.splitright = true
+
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
