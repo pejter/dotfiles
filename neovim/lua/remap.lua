@@ -21,7 +21,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 wk.register({
 	g = {
 		name = "Git",
-		s = { vim.cmd.Git, "Status" },
+		s = { "<cmd>vertical Git<cr>", "Status" },
 		o = { "<cmd>Telescope git_files<cr>", "Open File" },
 	},
 	f = {
