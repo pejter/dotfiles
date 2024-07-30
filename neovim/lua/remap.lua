@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local telescope = require("telescope.builtin")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -21,22 +22,23 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 wk.add({
 	{ "<leader>b", group = "Buffer" },
 	{ "<leader>bf", vim.lsp.buf.format, desc = "Format" },
-	{ "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "List" },
+	{ "<leader>bl", telescope.buffers, desc = "List" },
+	{ "<leader>bd", telescope.diagnostics, desc = "Diagnostics" },
 	{ "<leader>bq", "<cmd>bprevious <bar>bdelete #<cr>", desc = "Close" },
 
 	{ "<leader>f", group = "File" },
-	{ "<leader>ff", "<cmd>Telescope grep_string<cr>", desc = "Find (grep_string)" },
-	{ "<leader>fl", "<cmd>Telescope file_browser<cr>", desc = "List" },
-	{ "<leader>fo", "<cmd>Telescope find_files hidden=true<cr>", desc = "Open" },
-	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent" },
-	{ "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Search (live_grep)" },
+	{ "<leader>ff", telescope.grep_string, desc = "Find (grep_string)" },
+	{ "<leader>fl", telescope.file_browser, desc = "List" },
+	{ "<leader>fo", function() telescope.find_files({ hidden=true }) end, desc = "Open" },
+	{ "<leader>fr", telescope.oldfiles, desc = "Open Recent" },
+	{ "<leader>fs", telescope.live_grep, desc = "Search (live_grep)" },
 	{ "<leader>fv", "<cmd>Neotree reveal<cr>", desc = "Reveal in sidebar" },
 
 	{ "<leader>g", group = "Git" },
-	{ "<leader>go", "<cmd>Telescope git_files<cr>", desc = "Open File" },
+	{ "<leader>go", telescope.git_files, desc = "Open File" },
 	{ "<leader>gs", "<cmd>vertical Git<cr>", desc = "Status" },
 
-	{ "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+	{ "<leader>h", telescope.help_tags, desc = "Help" },
 	{ "<leader>O", ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', desc = "Insert newline before" },
 	{ "<leader>o", ':<C-u>call append(line(".") , repeat([""], v:count1))<cr>', desc = "Insert newline after" },
 	{ "<leader>t", ":tabnew term://zsh<cr>", desc = "Terminal" },
