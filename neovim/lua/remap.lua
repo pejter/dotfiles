@@ -18,37 +18,31 @@ vim.keymap.set("i", "<C-CR>", "<Esc>o")
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
-wk.register({
-	g = {
-		name = "Git",
-		s = { "<cmd>vertical Git<cr>", "Status" },
-		o = { "<cmd>Telescope git_files<cr>", "Open File" },
-	},
-	f = {
-		name = "File",
-		l = { "<cmd>Telescope file_browser<cr>", "List" },
-		o = { "<cmd>Telescope find_files hidden=true<cr>", "Open" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent" },
-		f = { "<cmd>Telescope grep_string<cr>", "Find (grep_string)" },
-		s = { "<cmd>Telescope live_grep<cr>", "Search (live_grep)" },
-		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-		v = { "<cmd>Neotree reveal<cr>", "Reveal in sidebar"},
-	},
-	b = {
-		name = "Buffer",
-		q = { "<cmd>bprevious <bar>bdelete #<cr>", "Close" },
-		f = { vim.lsp.buf.format, "Format" },
-	},
-	t = { ':tabnew term://zsh<cr>', "Terminal" },
-	o = { ':<C-u>call append(line(".")  , repeat([""], v:count1))<cr>', "Insert newline after" },
-	O = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', "Insert newline before" },
-	y = { [["+y]], "Yank to system clipboard", mode = { "n", "v" } },
-	x = { "<Cmd>!chmod +x %<cr>", "Set executable flag on current file" },
-	d = { [["_d]], "Delete (without copying)", mode = { "n", "v" } },
-	h = { "<cmd>Telescope help_tags<cr>", "Help" },
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>b", group = "Buffer" },
+	{ "<leader>bf", vim.lsp.buf.format, desc = "Format" },
+	{ "<leader>bq", "<cmd>bprevious <bar>bdelete #<cr>", desc = "Close" },
 
-wk.register({
-	p = { [["_dP]], "Paste (without replacing current register)" }
-}, { prefix = "<leader>", mode = "x" })
+	{ "<leader>f", group = "File" },
+	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+	{ "<leader>ff", "<cmd>Telescope grep_string<cr>", desc = "Find (grep_string)" },
+	{ "<leader>fl", "<cmd>Telescope file_browser<cr>", desc = "List" },
+	{ "<leader>fo", "<cmd>Telescope find_files hidden=true<cr>", desc = "Open" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent" },
+	{ "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Search (live_grep)" },
+	{ "<leader>fv", "<cmd>Neotree reveal<cr>", desc = "Reveal in sidebar" },
+
+	{ "<leader>g", group = "Git" },
+	{ "<leader>go", "<cmd>Telescope git_files<cr>", desc = "Open File" },
+	{ "<leader>gs", "<cmd>vertical Git<cr>", desc = "Status" },
+
+	{ "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+	{ "<leader>O", ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', desc = "Insert newline before" },
+	{ "<leader>o", ':<C-u>call append(line(".") , repeat([""], v:count1))<cr>', desc = "Insert newline after" },
+	{ "<leader>t", ":tabnew term://zsh<cr>", desc = "Terminal" },
+	{ "<leader>x", "<Cmd>!chmod +x %<cr>", desc = "Set executable flag on current file" },
+	{ "<leader>d", '"_d', desc = "Delete (without copying)", mode = { "n", "v" } },
+	{ "<leader>y", '"+y', desc = "Yank to system clipboard", mode = { "n", "v" } },
+	{ "<leader>p", '[["_dP]]', desc = "Paste (without replacing current register)" }, 
+})
 
