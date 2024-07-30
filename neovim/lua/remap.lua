@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<C-z>", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<cr>")
 
-vim.keymap.set("n", "J", "mzJ`z`")
+vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<A-k>", ":move .-2<cr>")
 vim.keymap.set("n", "<A-j>", ":move .+1<cr>")
 vim.keymap.set("i", "<A-k>", "<Esc>:move .-2<cr>gi")
