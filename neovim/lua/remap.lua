@@ -21,10 +21,10 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 wk.add({
 	{ "<leader>b", group = "Buffer" },
 	{ "<leader>bf", vim.lsp.buf.format, desc = "Format" },
+	{ "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "List" },
 	{ "<leader>bq", "<cmd>bprevious <bar>bdelete #<cr>", desc = "Close" },
 
 	{ "<leader>f", group = "File" },
-	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 	{ "<leader>ff", "<cmd>Telescope grep_string<cr>", desc = "Find (grep_string)" },
 	{ "<leader>fl", "<cmd>Telescope file_browser<cr>", desc = "List" },
 	{ "<leader>fo", "<cmd>Telescope find_files hidden=true<cr>", desc = "Open" },
