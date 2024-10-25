@@ -1,6 +1,5 @@
 [core]
 	autocrlf = false
-	pager = delta
 
 [user]
 	name = Piotr Łuczak
@@ -26,17 +25,12 @@
 [color]
 	ui = auto
 
-[interactive]
-	diffFilter = delta --color-only
-
-[delta]
-	navigate = true  # use n and N to move between diff sections
-
 [merge]
 	conflictstyle = diff3
 
 [diff]
 	colorMoved = default
+	external = difft
 
 [git-up "fetch"]
 	all = true
