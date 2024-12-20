@@ -50,6 +50,6 @@ wk.add({
 	{ "<leader>x", "<Cmd>!chmod +x %<cr>", desc = "Set executable flag on current file" },
 	{ "<leader>d", '"_d', desc = "Delete (without copying)", mode = { "n", "v" } },
 	{ "<leader>y", '"+y', desc = "Yank to system clipboard", mode = { "n", "v" } },
-	{ "<leader>p", '[["_dP]]', desc = "Paste (without replacing current register)" }, 
+	{ "<leader>p", '"_dP', desc = "Paste (without replacing current register)" }, 
 })
 
