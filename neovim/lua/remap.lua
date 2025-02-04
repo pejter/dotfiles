@@ -51,5 +51,6 @@ wk.add({
 	{ "<leader>d", '"_d', desc = "Delete (without copying)", mode = { "n", "v" } },
 	{ "<leader>y", '"+y', desc = "Yank to system clipboard", mode = { "n", "v" } },
 	{ "<leader>p", '"_dP', desc = "Paste (without replacing current register)" }, 
+	{ "<leader>q", '<cmd>cclose<cr>', desc = "Close quickfix window" }, 
 })
 
