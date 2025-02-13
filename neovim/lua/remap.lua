@@ -43,14 +43,10 @@ wk.add({
 	{ "<leader>gb", '<cmd>.GBrowse<cr>', desc = "Browse (Open in browser)" },
 
 	{ "<leader>h", telescope.help_tags, desc = "Help" },
-	{ "<leader>O", ':<C-u>call append(line(".")-1, repeat([""], v:count1))<cr>', desc = "Insert newline before" },
-	{ "<leader>o", ':<C-u>call append(line(".") , repeat([""], v:count1))<cr>', desc = "Insert newline after" },
 	{ "<leader>t", ":tabnew term://zsh<cr>", desc = "Terminal" },
 	{ "<leader>%", ":let @+ = expand('%:')<cr>", desc = "Yank current filepath to clipboard" },
-	{ "<leader>x", "<Cmd>!chmod +x %<cr>", desc = "Set executable flag on current file" },
 	{ "<leader>d", '"_d', desc = "Delete (without copying)", mode = { "n", "v" } },
 	{ "<leader>y", '"+y', desc = "Yank to system clipboard", mode = { "n", "v" } },
-	{ "<leader>p", '"_dP', desc = "Paste (without replacing current register)" }, 
 	{ "<leader>q", '<cmd>cclose<cr>', desc = "Close quickfix window" }, 
 })
 

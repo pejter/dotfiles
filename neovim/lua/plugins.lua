@@ -1,19 +1,19 @@
 local plugins = {
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-	"folke/which-key.nvim",
+	{ "folke/which-key.nvim" },
 	{ "nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = { "nvim-lua/plenary.nvim" } },
 	{ "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
 	{ "nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", } },
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, 
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{ "mbbill/undotree" },
-	{ "tpope/vim-fugitive", dependencies = { "tpope/vim-rhubarb" } }, 
+	{ "tpope/vim-fugitive", dependencies = { "tpope/vim-rhubarb" } },
 	{ "jeffkreeftmeijer/vim-numbertoggle" },
 	{ "tpope/vim-surround" },
-	{ "mg979/vim-visual-multi" }, 
+	{ "mg979/vim-visual-multi" },
 	{ "m4xshen/autoclose.nvim" },
 	{ 'numToStr/Comment.nvim' },
 
