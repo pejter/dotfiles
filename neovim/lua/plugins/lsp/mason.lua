@@ -42,6 +42,8 @@ return {
 				-- Bazel
 				"starpls",
 				"buildifier",
+				-- Yaml
+				"yamllint",
 			},
 		})
 	end,
