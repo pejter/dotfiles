@@ -59,7 +59,7 @@ return {
 				-- { "<leader>bs", telescope.lsp_document_symbols, desc = "Symbols" },
 
 				opts.desc = "Show buffer diagnostics"
-				vim.keymap.set("n", "<leader>bd", function() telescope.diagnostics({bufnr=0}) end, opts)
+				vim.keymap.set("n", "<leader>bd", function() telescope.diagnostics({ bufnr = 0 }) end, opts)
 
 				opts.desc = "Show line diagnostics"
 				vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
@@ -88,34 +88,34 @@ return {
 		-- (not in youtube nvim video)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
-		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
 		mason_lspconfig.setup_handlers({
-		-- default handler for installed servers
-		function(server_name)
-			lspconfig[server_name].setup({
-			capabilities = capabilities,
-			})
-		end,
-		["lua_ls"] = function()
-			-- configure lua server (with special settings)
-			lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-				-- make the language server recognize "vim" global
-				diagnostics = {
-					globals = { "vim" },
-				},
-				completion = {
-					callSnippet = "Replace",
-				},
-				},
-			},
-			})
-		end,
+			-- default handler for installed servers
+			function(server_name)
+				lspconfig[server_name].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["lua_ls"] = function()
+				-- configure lua server (with special settings)
+				lspconfig["lua_ls"].setup({
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							-- make the language server recognize "vim" global
+							diagnostics = {
+								globals = { "vim" },
+							},
+							completion = {
+								callSnippet = "Replace",
+							},
+						},
+					},
+				})
+			end,
 		})
 	end,
 }

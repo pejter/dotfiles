@@ -8,7 +8,7 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		-- "nvim-telescope/telescope-frecency.nvim",
 	},
-	config = function ()
+	config = function()
 		local telescope = require("telescope")
 		local telescopeConfig = require("telescope.config")
 		local builtin = require("telescope.builtin")
@@ -45,23 +45,23 @@ return {
 		telescope.load_extension("ui-select")
 		-- telescope.load_extension("frecency")
 
-		vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Help" } )
+		vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Help" })
 
 		-- File group
-		vim.keymap.set("n", "<leader>fl", telescope.extensions.file_browser.file_browser, { desc = "List" } )
-		vim.keymap.set("n", "<leader>fg", builtin.grep_string, { desc = "Find (grep_string)" } )
-		vim.keymap.set("n", "<leader>fo", function() builtin.find_files({ hidden=true }) end, { desc = "Open" } )
-		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Open Recent" } )
-		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Search (live_grep)" } )
+		vim.keymap.set("n", "<leader>fl", telescope.extensions.file_browser.file_browser, { desc = "List" })
+		vim.keymap.set("n", "<leader>fg", builtin.grep_string, { desc = "Find (grep_string)" })
+		vim.keymap.set("n", "<leader>fo", function() builtin.find_files({ hidden = true }) end, { desc = "Open" })
+		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Open Recent" })
+		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Search (live_grep)" })
 
 		-- Buffer group
-		vim.keymap.set("n", "<leader>bl", builtin.buffers, { desc = "List" } )
+		vim.keymap.set("n", "<leader>bl", builtin.buffers, { desc = "List" })
 
 		-- Search group
-		vim.keymap.set("n", "<leader>ss", builtin.lsp_dynamic_workspace_symbols, { desc = "Symbols" } )
-		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Diagnostics" } )
+		vim.keymap.set("n", "<leader>ss", builtin.lsp_dynamic_workspace_symbols, { desc = "Symbols" })
+		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Diagnostics" })
 
 		-- Git group
-		vim.keymap.set("n", "<leader>go", builtin.git_files, { desc = "Open file" } )
+		vim.keymap.set("n", "<leader>go", builtin.git_files, { desc = "Open file" })
 	end,
 }

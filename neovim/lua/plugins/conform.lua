@@ -21,6 +21,7 @@ return {
 			go = { "goimports", "gofmt" },
 			python = { "isort", "black" },
 			rust = { "rustfmt" },
+			astro = { "rustywind", lsp_format = "last" },
 		},
 		-- Set default options
 		default_format_opts = {

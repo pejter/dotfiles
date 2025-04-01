@@ -18,7 +18,7 @@ vim.opt.hlsearch = false
 
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+vim.opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- cursor line
 vim.opt.cursorline = true -- highlight the current cursor line
@@ -28,18 +28,18 @@ vim.opt.signcolumn = "yes"
 -- Show whitespace
 vim.opt.list = true
 vim.opt.listchars = {
-    space = "⋅",
-    eol = "↴",
-    tab = "▏_",
-    trail = "•",
-    extends = "❯",
-    precedes = "❮",
-    nbsp = "",
+	space = "⋅",
+	eol = "↴",
+	tab = "▏_",
+	trail = "•",
+	extends = "❯",
+	precedes = "❮",
+	nbsp = "",
 }
 vim.opt.fillchars = {
-    fold = " ",
-    foldsep = " ",
-    foldopen = "",
-    foldclose = "",
-    diff = "╱",
+	fold = " ",
+	foldsep = " ",
+	foldopen = "",
+	foldclose = "",
+	diff = "╱",
 }

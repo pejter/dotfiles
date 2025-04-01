@@ -41,7 +41,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				-- start & confirm completion
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<CR>"] = cmp.mapping.confirm({select = false}),
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
 
 				-- scroll up and down the documentation window
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),

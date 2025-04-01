@@ -44,6 +44,13 @@ return {
 				"buildifier",
 				-- Yaml
 				"yamllint",
+				-- Astro(LSP)
+				"astro-language-server",
+				-- Astro(Tailwind)
+				"rustywind",
+				-- Lua
+				"lua-language-server",
+				"stylua",
 			},
 		})
 	end,
