@@ -7,23 +7,27 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lua",
 		"onsails/lspkind.nvim",
+		{
+			"folke/lazydev.nvim",
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					{ "nvim-dap-ui" },
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 	},
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
-		-- local luasnip = require("luasnip")
 
 		cmp.setup({
 			preselect = "item",
 			completion = {
 				completeopt = "menu,menuone,noinsert"
 			},
-			-- configure how nvim-cmp interacts with snippet engine
-			-- snippet = {
-			-- 	expand = function(args)
-			-- 		luasnip.lsp_expand(args.body)
-			-- 	end,
-			-- },
 			formatting = {
 				format = lspkind.cmp_format(),
 			},
@@ -33,10 +37,12 @@ return {
 			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				-- { name = "luasnip" },
-			}, {
 				{ name = "buffer" },
 				{ name = "path" },
+				{
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+				},
 			}),
 			mapping = cmp.mapping.preset.insert({
 				-- start & confirm completion
@@ -50,7 +56,6 @@ return {
 				-- Tab completion
 				["<Tab>"] = {
 					c = function()
-						local cmp = require("cmp")
 						if cmp.visible() then
 							cmp.select_next_item()
 						else
@@ -60,7 +65,6 @@ return {
 				},
 				["<S-Tab>"] = {
 					c = function()
-						local cmp = require("cmp")
 						if cmp.visible() then
 							cmp.select_prev_item()
 						else
