@@ -16,6 +16,12 @@ return {
 		},
 	},
 	config = function()
+		-- Remove default mappings
+		vim.keymap.del("n", "grr")      -- References
+		vim.keymap.del("n", "gri")      -- Implementation
+		vim.keymap.del("n", "gO")       -- Document symbols
+		vim.keymap.del("n", "grn")      -- Rename
+		vim.keymap.del({ "n", "x" }, "gra") -- Code actions
 		vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "LSP actions",
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -52,7 +58,6 @@ return {
 
 				opts.desc = "Show LSP buffer symbols"
 				vim.keymap.set("n", "<leader>bs", telescope.lsp_document_symbols, opts)
-				-- { "<leader>bs", telescope.lsp_document_symbols, desc = "Symbols" },
 
 				opts.desc = "Show buffer diagnostics"
 				vim.keymap.set("n", "<leader>bd", function() telescope.diagnostics({ bufnr = 0 }) end, opts)
