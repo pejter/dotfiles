@@ -22,6 +22,8 @@ return {
 			python = { "isort", "black" },
 			rust = { "rustfmt" },
 			astro = { "rustywind", lsp_format = "last" },
+			sql = { "pg_format" },
+			php = { "phpcbf" },
 		},
 		-- Set default options
 		default_format_opts = {

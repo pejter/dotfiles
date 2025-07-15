@@ -56,6 +56,16 @@ return {
 				-- Lua
 				"lua-language-server",
 				"stylua",
+				-- SQL
+				"sqlls",
+				"sqlfluff",
+				"eugene",
+				"pgformatter",
+				-- PHP
+				"intelephense", -- LSP
+				"phpcs",
+				"phpcbf",
+				"phpstan",
 			},
 		})
 	end,
