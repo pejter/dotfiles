@@ -17,10 +17,11 @@ return {
 	},
 	config = function()
 		-- Remove default mappings
-		vim.keymap.del("n", "grr")      -- References
-		vim.keymap.del("n", "gri")      -- Implementation
-		vim.keymap.del("n", "gO")       -- Document symbols
-		vim.keymap.del("n", "grn")      -- Rename
+		vim.keymap.del("n", "grr")    -- References
+		vim.keymap.del("n", "gri")    -- Implementation
+		vim.keymap.del("n", "gO")     -- Document symbols
+		vim.keymap.del("n", "grn")    -- Rename
+		vim.keymap.del("n", "grt")    -- Type definitions
 		vim.keymap.del({ "n", "x" }, "gra") -- Code actions
 		vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "LSP actions",
