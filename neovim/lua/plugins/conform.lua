@@ -18,7 +18,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			bzl = { "buildifier" },
-			go = { "goimports", "gofmt" },
+			go = { "goimports", "gofmt", "golangci-lint" },
 			python = { "isort", "black" },
 			rust = { "rustfmt" },
 			astro = { "rustywind", lsp_format = "last" },
