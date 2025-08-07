@@ -32,8 +32,8 @@ source $SHARE_PATH/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle fd
-antigen bundle wfxr/forgit
 antigen bundle git
+antigen bundle wfxr/forgit
 antigen bundle keychain
 antigen bundle nvm
 antigen bundle pyenv
