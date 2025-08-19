@@ -10,6 +10,7 @@ return {
 		wk.setup({})
 		wk.add({
 			{ "<leader>b", group = "Buffer" },
+			{ "<leader>p", group = "Project" },
 			{ "<leader>f", group = "File" },
 			{ "<leader>s", group = "Search" },
 			{ "<leader>g", group = "Git" },
