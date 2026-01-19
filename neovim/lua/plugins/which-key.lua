@@ -14,6 +14,7 @@ return {
 			{ "<leader>f", group = "File" },
 			{ "<leader>s", group = "Search" },
 			{ "<leader>g", group = "Git" },
+			{ "<leader>c", group = "Companion" },
 		})
 	end,
 }
