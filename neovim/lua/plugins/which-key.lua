@@ -15,6 +15,7 @@ return {
 			{ "<leader>s", group = "Search" },
 			{ "<leader>g", group = "Git" },
 			{ "<leader>c", group = "Companion" },
+			{ "<leader>r", group = "REST client" },
 		})
 	end,
 }
