@@ -1,51 +1,60 @@
+local languages = {
+	-- Standard neovim config languages
+	"lua",
+	"vim",
+	"vimdoc",
+	"query",
+	-- Tooling
+	"bash",
+	"make",
+	-- Development
+	"rust",
+	"go",
+	"javascript",
+	"typescript",
+}
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
-	branch = "master", -- Change to main
+	branch = "main",
 	build = ":TSUpdate",
 	dependencies = {
-		"windwp/nvim-ts-autotag",
-	},
-	main = "nvim-treesitter.configs",
-	opts = {
-		-- A list of parser names, or "all"
-		ensure_installed = {
-			-- Standard neovim config languages
-			"lua",
-			"vim",
-			"vimdoc",
-			"query",
-			-- Tooling
-			"bash",
-			"make",
-			-- Development
-			"rust",
-			"go",
-			"javascript",
-			"typescript",
-		},
-
-		-- Install parsers synchronously (only applied to `ensure_installed`)
-		sync_install = false,
-
-		-- Automatically install missing parsers when entering buffer
-		-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-		auto_install = true,
-
-		highlight = {
-			enable = true,
-
-			-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-			-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-			-- Using this option may slow down your editor, and you may see some duplicate highlights.
-			-- Instead of true it can also be a list of languages
-			additional_vim_regex_highlighting = false,
-		},
-		-- enable indentation
-		indent = { enable = true },
-		-- enable autotagging (w/ nvim-ts-autotag plugin)
-		autotag = {
-			enable = true,
+		{
+			"windwp/nvim-ts-autotag",
+			opts = {
+				opts = {
+					enable_close_on_slash = true,
+				},
+			},
 		},
 	},
+	config = function()
+		-- replicate `ensure_installed`, runs asynchronously, skips existing languages
+		require("nvim-treesitter").install(languages)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup("treesitter.setup", {}),
+			callback = function(args)
+				local buf = args.buf
+				local filetype = args.match
+
+				-- check if a parser exists for the current language
+				local language = vim.treesitter.language.get_lang(filetype) or filetype
+				if not vim.treesitter.language.add(language) then
+					return
+				end
+
+				-- replicate `fold = { enable = true }`
+				vim.wo.foldmethod = "expr"
+				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+				-- replicate `highlight = { enable = true }`
+				vim.treesitter.start(buf, language)
+
+				-- replicate `indent = { enable = true }`
+				vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
+	end,
 }

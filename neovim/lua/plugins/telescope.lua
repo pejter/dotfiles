@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- Extensions
@@ -47,7 +47,7 @@ return {
 						project_actions.find_project_files(prompt_bufnr, true)
 						-- require("harpoon.ui").nav_file(1)
 					end,
-				}
+				},
 			},
 		})
 
@@ -60,7 +60,9 @@ return {
 		-- File group
 		vim.keymap.set("n", "<leader>fl", telescope.extensions.file_browser.file_browser, { desc = "List" })
 		vim.keymap.set("n", "<leader>fg", builtin.grep_string, { desc = "Find (grep_string)" })
-		vim.keymap.set("n", "<leader>fo", function() builtin.find_files({ hidden = true }) end, { desc = "Open" })
+		vim.keymap.set("n", "<leader>fo", function()
+			builtin.find_files({ hidden = true })
+		end, { desc = "Open" })
 		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Open Recent" })
 		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Search (live_grep)" })
 		vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Search (live_grep)" })

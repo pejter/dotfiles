@@ -26,7 +26,7 @@ return {
 			ensure_installed = {
 				-- JS/TS
 				"typescript-language-server",
-				"deno",
+				-- "deno",
 				-- Python
 				"python-lsp-server",
 				"isort",

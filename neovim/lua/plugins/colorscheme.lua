@@ -4,7 +4,6 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "macchiato",
 			transparent_background = true,
 			styles = {       -- Handles the styles of general hi groups (see `:h highlight-args`):
 				comments = { "italic" }, -- Change the style of comments
@@ -16,6 +15,6 @@ return {
 		vim.opt.termguicolors = true
 		vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin-macchiato")
 	end,
 }

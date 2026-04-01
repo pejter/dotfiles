@@ -19,6 +19,14 @@ return {
 					model = "claude-opus-4.5",
 				},
 			},
+			-- Turn off code completion
+			background = {
+				chat = {
+					opts = {
+						enabled = false,
+					},
+				},
+			},
 		},
 		adapters = {
 			http = {

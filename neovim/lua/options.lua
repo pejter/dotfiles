@@ -13,6 +13,9 @@ vim.wo.relativenumber = true
 -- Word wrap
 vim.opt.wrap = false
 
+-- do not fold anything by default
+vim.wo.foldlevel = 1000
+
 -- No highlight during search
 vim.opt.hlsearch = false
 

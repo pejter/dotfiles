@@ -12,7 +12,7 @@ return {
 				-- "nvim-tree/nvim-tree.lua",
 				"nvim-neo-tree/neo-tree.nvim",
 			},
-			config = true
+			config = true,
 		},
 	},
 	config = function()
@@ -61,7 +61,9 @@ return {
 				vim.keymap.set("n", "<leader>bs", telescope.lsp_document_symbols, opts)
 
 				opts.desc = "Show buffer diagnostics"
-				vim.keymap.set("n", "<leader>bd", function() telescope.diagnostics({ bufnr = 0 }) end, opts)
+				vim.keymap.set("n", "<leader>bd", function()
+					telescope.diagnostics({ bufnr = 0 })
+				end, opts)
 
 				opts.desc = "Show line diagnostics"
 				vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
@@ -95,7 +97,7 @@ return {
 			},
 		})
 
-		vim.lsp.config('lua_ls', {
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					-- make the language server recognize "vim" global
