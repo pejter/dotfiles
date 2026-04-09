@@ -18,6 +18,7 @@ return {
 	config = function()
 		-- Remove default mappings
 		vim.keymap.del("n", "grr")    -- References
+		vim.keymap.del("n", "grx")    -- Code Lens
 		vim.keymap.del("n", "gri")    -- Implementation
 		vim.keymap.del("n", "gO")     -- Document symbols
 		vim.keymap.del("n", "grn")    -- Rename
@@ -69,13 +70,20 @@ return {
 				vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 
 				opts.desc = "Go to previous diagnostic"
-				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+				vim.keymap.set("n", "[d", function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end, opts)
 
 				opts.desc = "Go to next diagnostic"
-				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+				vim.keymap.set("n", "]d", function()
+					vim.diagnostic.jump({ count = 1, float = true })
+				end, opts)
 
 				opts.desc = "Smart rename"
 				vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
+
+				opts.desc = "Run Code Lens"
+				vim.keymap.set("n", "<leader>l", vim.lsp.codelens.run, opts)
 
 				opts.desc = "See available code actions"
 				vim.keymap.set({ "n", "v" }, "<F4>", vim.lsp.buf.code_action, opts)

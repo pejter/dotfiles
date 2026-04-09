@@ -23,8 +23,12 @@ vim.keymap.set("n", "<leader>t", ":tabnew term://zsh<cr>", { desc = "Terminal" }
 
 -- Diagnostics
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Go to previous diagnostic" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Go to next diagnostic" })
 
 -- Buffer
 vim.keymap.set("n", "<leader>bq", "<cmd>bprevious <bar>bdelete #<cr>", { desc = "Close" })
