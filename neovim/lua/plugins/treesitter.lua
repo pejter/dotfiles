@@ -7,6 +7,11 @@ local languages = {
 	-- Tooling
 	"bash",
 	"make",
+	"gitcommit",
+	"git_rebase",
+	"git_config",
+	"gitignore",
+	"gitattributes",
 	-- Development
 	"rust",
 	"go",
