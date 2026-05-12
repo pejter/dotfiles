@@ -24,6 +24,7 @@ return {
 			astro = { "rustywind", lsp_format = "last" },
 			sql = { "pg_format" },
 			php = { "phpcbf" },
+			yaml = { "yamlfmt" },
 		},
 		-- Set default options
 		default_format_opts = {
@@ -31,7 +32,7 @@ return {
 		},
 		-- Set up format-on-save
 		format_on_save = {
-			timeout_ms = 1000
+			timeout_ms = 1000,
 		},
-	}
+	},
 }
