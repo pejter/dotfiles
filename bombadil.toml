@@ -6,6 +6,7 @@ vars = ["vars/palette.toml", "vars/misc.toml"]
 
 [settings.dots]
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
+git-av = { source = "git/av.yaml", target = ".config/av/config.yaml" }
 
 alacritty = { source = "alacritty", target = ".config/alacritty" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }

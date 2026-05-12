@@ -53,6 +53,10 @@ if command -v mise >/dev/null 2>&1; then
 	eval "$(mise activate zsh)"
 fi
 
+if command -v av >/dev/null 2>&1;; then
+	source <(av completion zsh)
+fi
+
 if [ -f $SHARE_PATH/nnn/quitcd/quitcd.bash_sh_zsh ]; then
 	source $SHARE_PATH/nnn/quitcd/quitcd.bash_sh_zsh
 fi

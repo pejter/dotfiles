@@ -1,0 +1,17 @@
+
+pullRequest:
+  branchNamePrefix: "{{username}}/"
+
+  draft: true
+  openBrowser: true
+  noWipDetection: false
+  writeStack: true
+
+# Additional trunk branch names. By default, av CLI uses the branch pointed by HEAD.
+additionalTrunkBranches:
+  - dev
+  - main
+  - master
+
+# The remote name. By default av CLI uses "origin".
+remote: "origin"
