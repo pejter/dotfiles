@@ -43,7 +43,6 @@ return {
 					search_by = "title",
 					-- sync_with_nvim_tree = true, -- default false
 					on_project_selected = function(prompt_bufnr)
-						-- Do anything you want in here. For example:
 						project_actions.find_project_files(prompt_bufnr, true)
 						-- require("harpoon.ui").nav_file(1)
 					end,
@@ -64,7 +63,6 @@ return {
 			builtin.find_files({ hidden = true })
 		end, { desc = "Open" })
 		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Open Recent" })
-		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Search (live_grep)" })
 		vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Search (live_grep)" })
 
 		-- Project group
