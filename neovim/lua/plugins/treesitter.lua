@@ -53,7 +53,7 @@ return {
 				end
 
 				if not vim.list_contains(ts.get_installed(), lang) and not vim.list_contains(languages, lang) then
-					ts.install(lang):wait()
+					ts.install(lang, { summary = false }):wait()
 				end
 
 				-- replicate `highlight = { enable = true }`
