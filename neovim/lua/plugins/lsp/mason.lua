@@ -42,7 +42,7 @@ return {
 				"dockerfile-language-server",
 				"docker-compose-language-service",
 				-- Terraform
-				"terraform-ls",
+				-- "terraform-ls", -- Causes a hang in 0.12
 				"tflint",
 				-- Bazel
 				"starpls",
