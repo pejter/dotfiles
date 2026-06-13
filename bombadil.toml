@@ -3,6 +3,7 @@ dotfiles_dir = "dotfiles"
 
 [settings]
 vars = ["vars/palette.toml", "vars/misc.toml"]
+posthooks = ["zsh ${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote bundle < $HOME/dotfiles/zsh/zsh_plugins.txt > ~/.zsh_plugins.zsh"]
 
 [settings.dots]
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }

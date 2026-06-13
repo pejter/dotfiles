@@ -1,49 +1,68 @@
-# Ignore lines with space
-setopt histignorespace
+# History
+HISTSIZE=50000
+SAVEHIST=50000
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
 
 # Disable beep
 unsetopt beep
 
-# Keychain options
-zstyle :omz:plugins:keychain options --quiet
-zstyle :omz:plugins:keychain agents ssh,gpg
+# Emacs keybindings
+bindkey -e
+
+# Homebrew paths
+if command -v brew >/dev/null 2>&1; then
+	fpath=( "$HOMEBREW_PREFIX/share/zsh/site-functions" "${fpath[@]}" )
+fi
 
 # Completion
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
-zstyle :compinstall filename '$HOME/.zshrc'
-
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
+autoload -Uz compinit && compinit
 
-# Oh-my-zsh settings
-DEFAULT_USER="{{ username }}"
-COMPLETION_WAITING_DOTS="true"
-SHARE_PATH="/usr/share"
+# Antidote static plugins
+source ~/.zsh_plugins.zsh
 
-bindkey -e
-
-if command -v brew >/dev/null 2>&1; then
-	fpath=( "$HOMEBREW_PREFIX/share/zsh/site-functions" "${fpath[@]}" )
-	SHARE_PATH="$HOMEBREW_PREFIX/share"
+# Keychain
+if command -v keychain >/dev/null 2>&1; then
+	eval $(keychain --eval --quiet --agents ssh,gpg)
 fi
-# Antigen
-source $SHARE_PATH/antigen/antigen.zsh
-antigen use oh-my-zsh
 
-antigen bundle fd
-antigen bundle git
-antigen bundle wfxr/forgit
-antigen bundle keychain
-antigen bundle nvm
-antigen bundle pyenv
-antigen bundle docker
-antigen bundle docker-compose
-antigen bundle colored-man-pages
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+# Git helper functions
+function git_current_branch() {
+	git rev-parse --abbrev-ref HEAD 2>/dev/null
+}
 
-antigen apply
+function git_main_branch() {
+	local branch
+	for branch in main trunk master; do
+		if git show-ref -q --verify "refs/heads/$branch" 2>/dev/null; then
+			echo $branch
+			return
+		fi
+	done
+	echo main
+}
+
+# Git aliases
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcb='git checkout -b'
+alias gcm='git checkout $(git_main_branch)'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias gpsup='git push --set-upstream origin $(git_current_branch)'
+alias grbi='git rebase -i'
+alias gst='git status'
+alias gsta='git stash push'
+alias gstp='git stash pop'
+alias gb='git branch'
 
 if command -v fnm >/dev/null 2>&1; then
 	eval "$(fnm env)"
@@ -54,15 +73,19 @@ if command -v mise >/dev/null 2>&1; then
 fi
 
 if command -v av >/dev/null 2>&1; then
-	source <(av completion zsh)
+	source =(av completion zsh)
 fi
 
-if [ -f $SHARE_PATH/nnn/quitcd/quitcd.bash_sh_zsh ]; then
-	source $SHARE_PATH/nnn/quitcd/quitcd.bash_sh_zsh
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
+	source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh
+elif [ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/share/nnn/quitcd/quitcd.bash_sh_zsh" ]; then
+	source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/nnn/quitcd/quitcd.bash_sh_zsh"
 fi
 
-if [ -f $SHARE_PATH/autojump/autojump.zsh ]; then
-	source $SHARE_PATH/autojump/autojump.zsh
+if [ -f /usr/share/autojump/autojump.zsh ]; then
+	source /usr/share/autojump/autojump.zsh
+elif [ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/share/autojump/autojump.zsh" ]; then
+	source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/autojump/autojump.zsh"
 fi
 
 # Starship prompt
