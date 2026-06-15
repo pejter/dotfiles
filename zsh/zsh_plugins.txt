@@ -17,6 +17,9 @@ zsh-users/zsh-completions kind:fpath path:src
 # Colored man pages
 ael-code/zsh-colored-man-pages
 
+# Terminal title (shows dir + running command)
+olets/zsh-window-title
+
 # Fish-like autosuggestions (deferred for faster startup)
 zsh-users/zsh-autosuggestions kind:defer
 

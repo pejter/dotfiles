@@ -1,6 +1,11 @@
 # Disable beep
 unsetopt beep
 
+# Auto-pushd (cd pushes to directory stack)
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_minus
+
 # Zephyr plugin config (must be set before sourcing plugins)
 zstyle ':zephyr:plugin:editor' key-bindings emacs
 # zstyle ':zephyr:plugin:editor:emacs' cursor block
@@ -15,6 +20,10 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Antidote static plugins
 source ~/.zsh_plugins.zsh
+
+# Prefix-based history search with Up/Down
+bindkey "$key_info[Up]" history-beginning-search-backward
+bindkey "$key_info[Down]" history-beginning-search-forward
 
 # Keychain
 if command -v keychain >/dev/null 2>&1; then
