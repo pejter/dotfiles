@@ -1,5 +1,11 @@
 # Antidote plugins
 
+# Zephyr core plugins
+using:mattmc3/zephyr path:plugins
+  history
+  completion
+  editor
+
 # Interactive git via fzf
 wfxr/forgit
 
