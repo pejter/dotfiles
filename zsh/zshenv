@@ -1,4 +1,3 @@
-export PATH="$HOME/bin:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export EDITOR=nvim
 
 # Homebrew
@@ -61,3 +60,12 @@ screenshot_area() {
   grim -g "$(slurp)" "$fname"
   wl-copy < $fname
 }
+# If we have libpq explicitly installed via homebrew, override the postgres one
+if [ -d "${HOMEBREW_PREFIX}/opt/libpq/bin" ]; then
+  export PATH="${HOMEBREW_PREFIX}/opt/libpq/bin:$PATH"
+fi
+
+# If we have curl installed via homebrew, override the system one
+if [ -d "${HOMEBREW_PREFIX}/opt/curl/bin" ]; then
+  export PATH="${HOMEBREW_PREFIX}/opt/curl/bin:$PATH"
+fi

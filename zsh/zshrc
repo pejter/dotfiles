@@ -3,13 +3,11 @@ unsetopt beep
 
 # Zephyr plugin config (must be set before sourcing plugins)
 zstyle ':zephyr:plugin:editor' key-bindings emacs
+# zstyle ':zephyr:plugin:editor:emacs' cursor block
 zstyle ':zephyr:plugin:completion' use-cache yes
+zstyle ':zephyr:plugin:homebrew' keg-only-brews curl libpq sqlite
+HOMEBREW_NO_ANALYTICS=0
 setopt share_history
-
-# Homebrew paths
-if command -v brew >/dev/null 2>&1; then
-	fpath=( "$HOMEBREW_PREFIX/share/zsh/site-functions" "${fpath[@]}" )
-fi
 
 # Docker completion stacking
 zstyle ':completion:*:*:docker:*' option-stacking yes

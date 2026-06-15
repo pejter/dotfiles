@@ -2,9 +2,11 @@
 
 # Zephyr core plugins
 using:mattmc3/zephyr path:plugins
+  homebrew
   history
   completion
   editor
+  utility
 
 # Interactive git via fzf
 wfxr/forgit
