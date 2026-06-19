@@ -14,6 +14,9 @@ wfxr/forgit
 # Extra zsh completions
 zsh-users/zsh-completions kind:fpath path:src
 
+# fzf-powered completion menu
+Aloxaf/fzf-tab
+
 # Colored man pages
 ael-code/zsh-colored-man-pages
 
