@@ -46,30 +46,15 @@ function git_main_branch() {
 	echo main
 }
 
-# Git aliases
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
-alias gcb='git checkout -b'
-alias gcm='git checkout $(git_main_branch)'
-alias gp='git push'
-alias gpf='git push --force-with-lease'
-alias gpsup='git push --set-upstream origin $(git_current_branch)'
-alias grbi='git rebase -i'
-alias gst='git status'
-alias gsta='git stash push'
-alias gstp='git stash pop'
-alias gb='git branch'
-
-if command -v fnm >/dev/null 2>&1; then
-	eval "$(fnm env)"
-fi
-
 if command -v mise >/dev/null 2>&1; then
 	eval "$(mise activate zsh)"
 fi
 
 if command -v av >/dev/null 2>&1; then
 	source =(av completion zsh)
+	alias avs="av sync"
+	alias avs!="av sync --rebase-to-trunk --ff-trunk"
+	alias avsw="av switch"
 fi
 
 if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
@@ -87,7 +72,22 @@ fi
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Aliases
+# Git aliases
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcb='git checkout -b'
+alias gcm='git checkout $(git_main_branch)'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias gpsup='git push --set-upstream origin $(git_current_branch)'
+alias grbi='git rebase -i'
+alias gst='git status'
+alias gsta='git stash push'
+alias gstp='git stash pop'
+alias gb='git branch'
+
+# General aliases
+alias l="ls -lah"
 alias dirs="dirs -v"
 alias wrk='docker run --rm --net=host williamyeh/wrk'
 alias dive='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest'
