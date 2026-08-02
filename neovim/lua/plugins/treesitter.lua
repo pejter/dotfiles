@@ -35,9 +35,8 @@ return {
 		},
 	},
 	config = function()
-		-- replicate `ensure_installed`, runs asynchronously, skips existing languages
 		local ts = require("nvim-treesitter")
-		ts.install(languages)
+		ts.install(languages, { summary = false })
 
 		vim.api.nvim_create_autocmd("FileType", {
 			group = vim.api.nvim_create_augroup("treesitter.setup", {}),
@@ -53,7 +52,13 @@ return {
 				end
 
 				if not vim.list_contains(ts.get_installed(), lang) and not vim.list_contains(languages, lang) then
-					ts.install(lang, { summary = false }):wait()
+					-- Run via vim.cmd with silent! to prevent the "press enter" prompt.
+					vim.cmd(
+						string.format(
+							"silent! lua require('nvim-treesitter').install('%s', { summary = false }):wait()",
+							lang
+						)
+					)
 				end
 
 				-- replicate `highlight = { enable = true }`
