@@ -4,6 +4,13 @@
 [user]
 	name = Piotr Łuczak
 	email = {{ email }}
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+	format = ssh
+
+[tag]
+	gpgSign = true
 
 [commit]
 	gpgSign = true
