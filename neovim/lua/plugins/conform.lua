@@ -19,7 +19,7 @@ return {
 		formatters_by_ft = {
 			bzl = { "buildifier" },
 			go = { "goimports", "gofmt", "golangci-lint" },
-			python = { "isort", "black" },
+			python = { "ruff_fix", "ruff_format" },
 			rust = { "rustfmt" },
 			astro = { "rustywind", lsp_format = "last" },
 			sql = { "pg_format" },

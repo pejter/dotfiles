@@ -28,10 +28,8 @@ return {
 				"typescript-language-server",
 				-- "deno",
 				-- Python
-				"python-lsp-server",
-				"isort",
-				"black",
-				"pylint",
+				"ty",
+				"ruff",
 				-- Go
 				"goimports",
 				"gopls",

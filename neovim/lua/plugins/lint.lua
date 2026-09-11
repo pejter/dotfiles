@@ -7,7 +7,7 @@ return {
 		lint.linters_by_ft = {
 			bzl = { "buildifier" },
 			go = { "golangcilint" },
-			python = { "pylint" },
+			python = { "ruff" },
 			rust = { "clippy" },
 			terraform = { "tflint" },
 			yaml = { "yamllint" },
