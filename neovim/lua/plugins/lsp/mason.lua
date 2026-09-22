@@ -25,8 +25,7 @@ return {
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				-- JS/TS
-				"typescript-language-server",
-				-- "deno",
+				"biome",
 				-- Python
 				"ty",
 				"ruff",
