@@ -28,7 +28,7 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "$key_info[Up]" history-beginning-search-backward-end
 bindkey "$key_info[Down]" history-beginning-search-forward-end
 
-# Keychain
+# Keychain setup
 if command -v keychain >/dev/null 2>&1; then
 	eval $(keychain --eval --quiet --agents ssh,gpg)
 fi
@@ -96,23 +96,15 @@ if command -v mise >/dev/null 2>&1; then
 	eval "$(mise activate zsh)"
 fi
 
+if command -v kubectl >/dev/null 2>&1; then
+	source =(kubectl completion zsh)
+fi
+
 if command -v av >/dev/null 2>&1; then
 	source =(av completion zsh)
 	alias avs="av sync"
 	alias avs!="av sync --rebase-to-trunk --ff-trunk"
 	alias avsw="av switch"
-fi
-
-if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
-	source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh
-elif [ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/share/nnn/quitcd/quitcd.bash_sh_zsh" ]; then
-	source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/nnn/quitcd/quitcd.bash_sh_zsh"
-fi
-
-if [ -f /usr/share/autojump/autojump.zsh ]; then
-	source /usr/share/autojump/autojump.zsh
-elif [ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/share/autojump/autojump.zsh" ]; then
-	source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/autojump/autojump.zsh"
 fi
 
 # Starship prompt

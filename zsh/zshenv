@@ -43,23 +43,6 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init --path)"
 fi
 
-screenshot_full() {
-  date=$(date +%Y-%m-%d_%H-%M-%S)
-  dir="$HOME/Pictures/Screenshots"
-  mkdir -p $dir
-  fname="$dir/screenshot-$date.png"
-  grim "$fname"
-  wl-copy < $fname
-}
-
-screenshot_area() {
-  date=$(date +%Y-%m-%d_%H-%M-%S)
-  dir="$HOME/Pictures/Screenshots"
-  mkdir -p $dir
-  fname="$dir/screenshot-$date.png"
-  grim -g "$(slurp)" "$fname"
-  wl-copy < $fname
-}
 # If we have libpq explicitly installed via homebrew, override the postgres one
 if [ -d "${HOMEBREW_PREFIX}/opt/libpq/bin" ]; then
   export PATH="${HOMEBREW_PREFIX}/opt/libpq/bin:$PATH"
