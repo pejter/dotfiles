@@ -11,7 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local opts = {}
+---@class LazyConfig
+local opts = {
+	rocks = {
+		hererocks = false,
+	},
+}
 
 require("lazy").setup({
 	{ import = "plugins" },
