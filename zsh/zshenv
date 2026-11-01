@@ -43,6 +43,12 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init --path)"
 fi
 
+# pnpm
+if [ -d "$HOME/.local/share/pnpm/bin" ]; then
+  export PATH="$HOME/.local/share/pnpm/bin:$PATH"
+fi
+
+
 # If we have libpq explicitly installed via homebrew, override the postgres one
 if [ -d "${HOMEBREW_PREFIX}/opt/libpq/bin" ]; then
   export PATH="${HOMEBREW_PREFIX}/opt/libpq/bin:$PATH"
