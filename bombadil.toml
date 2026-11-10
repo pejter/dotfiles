@@ -3,19 +3,37 @@ dotfiles_dir = "dotfiles"
 
 [settings]
 vars = ["vars/palette.toml", "vars/misc.toml"]
-posthooks = ["zsh ${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote bundle < $HOME/dotfiles/zsh/zsh_plugins.txt > ~/.zsh_plugins.zsh"]
+prehooks = [
+	# Remove all direct link targets, fixed by https://github.com/oknozor/toml-bombadil/pull/479
+	"rm ~/.config/nvim ~/.agents/skills ~/.claude/skills",
+]
+posthooks = [
+	"zsh ${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote bundle < $HOME/dotfiles/zsh/zsh_plugins.txt > ~/.zsh_plugins.zsh",
+]
 
 [settings.dots]
+# Git
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 git-av = { source = "git/av.yaml", target = ".config/av/config.yaml" }
 
+# Shell
 alacritty = { source = "alacritty", target = ".config/alacritty" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zsh-env = { source = "zsh/zshenv", target = ".zshenv" }
 
+# Editors
 nano = { source = "nano", target = ".config/nano" }
-neovim = { source = "neovim", target = ".config/nvim" }
+neovim = { source = "neovim", target = ".config/nvim", direct = true }
+
+# LLM tooling
+llm_skills = { source = "llm/.agents/skills", target = ".agents/skills", direct = true }
+
+llm_claude = { source = "llm/user-instructions.md", target = ".claude/CLAUDE.md" }
+llm_skills_claude = { source = "llm/.agents/skills", target = ".claude/skills", direct = true }
+
+llm_copilot = { source = "llm/user-instructions.md", target = ".copilot/copilot-instructions.md" }
+
 
 [profiles.sway]
 posthooks = ["sway reload"]
