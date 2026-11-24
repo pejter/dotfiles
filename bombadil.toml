@@ -4,6 +4,7 @@ dotfiles_dir = "dotfiles"
 [settings]
 vars = ["vars/palette.toml", "vars/misc.toml"]
 prehooks = [
+	"brew bundle check --file=\"$HOME/dotfiles/Brewfile\" --verbose",
 	# Remove all direct link targets, fixed by https://github.com/oknozor/toml-bombadil/pull/479
 	"rm ~/.config/nvim ~/.agents/skills ~/.claude/skills",
 ]
